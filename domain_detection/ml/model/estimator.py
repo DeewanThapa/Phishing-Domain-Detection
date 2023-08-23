@@ -1,11 +1,12 @@
 from domain_detection.constant.training_pipeline import SAVED_MODEL_DIR, MODEL_FILE_NAME
-import os
+import os,sys
+from domain_detection.exception import CustomException
 
 
 class TargetValueMapping:
     def __init__(self):
-        self.Fake: int = 0
-        self.Real: int = 1
+        self.Real: int = 0
+        self.Fake: int = 1
 
     def to_dict(self):
         return self.__dict__
@@ -24,7 +25,7 @@ class DomainModel:
             self.preprocessor = preprocessor
             self.model = model
         except Exception as e:
-            raise e
+            raise CustomException(e,sys)
 
     def predict(self, x):
         try:
@@ -32,7 +33,7 @@ class DomainModel:
             y_hat = self.model.predict(x_transform)
             return y_hat
         except Exception as e:
-            raise e
+            raise CustomException(e,sys)
 
 
 class ModelResolver:
@@ -42,7 +43,7 @@ class ModelResolver:
             self.model_dir = model_dir
 
         except Exception as e:
-            raise e
+            raise CustomException(e,sys)
 
     def get_best_model_path(self, ) -> str:
         try:
@@ -51,7 +52,7 @@ class ModelResolver:
             latest_model_path = os.path.join(self.model_dir, f"{latest_timestamp}", MODEL_FILE_NAME)
             return latest_model_path
         except Exception as e:
-            raise e
+            raise CustomException(e,sys)
 
     def is_model_exists(self) -> bool:
         try:
@@ -69,6 +70,6 @@ class ModelResolver:
 
             return True
         except Exception as e:
-            raise e
+            raise CustomException(e,sys)
 
 

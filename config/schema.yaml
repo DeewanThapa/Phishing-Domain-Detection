@@ -3,7 +3,6 @@ columns:
   - asn_ip: int
   - directory_length: int
   - domain_length: int
-  - domain_spf: int
   - file_length: int
   - length_url: int
   - params_length: int
@@ -81,7 +80,6 @@ numerical_columns:
   - asn_ip
   - directory_length
   - domain_length
-  - domain_spf
   - file_length
   - length_url
   - params_length

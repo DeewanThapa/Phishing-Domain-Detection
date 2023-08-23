@@ -1,5 +1,4 @@
-from domain_detection.exception import CustomException
-from domain_detection.logger import logging
+
 from domain_detection.pipeline.training_pipeline import TrainPipeline
 from fastapi import FastAPI, File, UploadFile, Request
 from domain_detection.constant.training_pipeline import SAVED_MODEL_DIR
@@ -38,14 +37,13 @@ async def index():
 @app.get("/train")
 async def train_route():
     try:
-
         train_pipeline = TrainPipeline()
         if train_pipeline.is_pipeline_running:
             return Response("Training pipeline is already running.")
         train_pipeline.run_pipeline()
         return Response("Training successful !!")
     except Exception as e:
-        return Response(f"Error Occurred! {e}")
+        return Response(f"Error Occurred! {str(e)}")
 
 
 @app.post("/predict")
@@ -74,8 +72,6 @@ async def predict_route(request: Request, file: UploadFile = File(...)):
     except Exception as e:
         return JSONResponse(content={"error": f"An error occurred: {str(e)}"}, status_code=500)
 
-    except Exception as e:
-        raise Response(f"Error Occured! {e}")
 
 if __name__ == "__main__":
     app_run(app, host=APP_HOST, port=APP_PORT)

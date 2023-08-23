@@ -16,6 +16,7 @@ wincertstore==0.2
 xgboost==1.6.2
 pandas
 numpy
+scipy
 scikit-learn
 starlette
 python-dotenv

@@ -1,4 +1,4 @@
-from distutils import dir_util
+
 from domain_detection.constant.training_pipeline import SCHEMA_FILE_PATH
 from domain_detection.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from domain_detection.entity.config_entity import DataValidationConfig

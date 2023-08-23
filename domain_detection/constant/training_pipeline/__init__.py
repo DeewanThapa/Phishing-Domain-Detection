@@ -2,12 +2,12 @@ import os
 #from domain_detection.constant.s3_bucket import TRAINING_BUCKET_NAME
 
 SAVED_MODEL_DIR = os.path.join("saved_models")
+
 # defining common constant variable for training pipeline
 TARGET_COLUMN = "phishing"
 PIPELINE_NAME: str = "phishing_domain_detection"
 ARTIFACT_DIR: str = "artifact"
 FILE_NAME: str = "phishing_domain.csv"
-
 TRAIN_FILE_NAME: str = "train.csv"
 TEST_FILE_NAME: str = "test.csv"
 

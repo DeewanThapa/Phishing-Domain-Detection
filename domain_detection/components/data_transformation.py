@@ -1,5 +1,4 @@
 import sys
-
 import numpy as np
 import pandas as pd
 from imblearn.combine import SMOTETomek
@@ -18,6 +17,7 @@ from domain_detection.utils.main_utils import save_numpy_array_data, save_object
 
 
 class DataTransformation:
+
     def __init__(self, data_validation_artifact: DataValidationArtifact,
                  data_transformation_config: DataTransformationConfig, ):
         """

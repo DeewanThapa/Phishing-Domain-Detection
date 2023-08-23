@@ -10,6 +10,9 @@ from domain_detection.entity.artifact_entity import DataIngestionArtifact
 from sklearn.model_selection import train_test_split
 
 class DataIngestion:
+    """
+    Extracting Data from AstraDB and storing that data inside the feature store folder.
+    """
 
     def __init__(self,data_ingestion_config:DataIngestionConfig):
         try:
