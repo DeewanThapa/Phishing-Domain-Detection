@@ -87,8 +87,13 @@ jobs:
 
       - name: Stop and remove domain_detection container if running
         run: |
-         set -x
-          docker ps -q --filter "name=domain-detection" | grep -q . && docker stop domain-detection && docker rm -fv domain-detection
+          set -x
+          if docker ps -q --filter "name=domain-detection" | grep -q .; then
+            docker stop domain-detection
+            docker rm -fv domain-detection
+          else
+            echo "No matching running container found. Continuing..."
+          fi
 
       - name: Run Docker Image to serve users
         run: |
