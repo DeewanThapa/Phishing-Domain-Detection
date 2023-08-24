@@ -5,17 +5,13 @@ from domain_detection.constant.training_pipeline import SAVED_MODEL_DIR
 from uvicorn import run as app_run
 from starlette.responses import RedirectResponse
 from fastapi.responses import Response
+from domain_detection.constant.application import APP_HOST, APP_PORT
 from domain_detection.ml.model.estimator import ModelResolver,TargetValueMapping
 from domain_detection.utils.main_utils import load_object
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import os
 import pandas as pd
-from dotenv import find_dotenv, load_dotenv
-dotenv_path = find_dotenv()
-load_dotenv(dotenv_path)
-APP_HOST = os.getenv("APP_HOST")
-APP_PORT = os.getenv("APP_POST")
 
 app = FastAPI()
 origins = ["*"]

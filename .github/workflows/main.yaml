@@ -87,11 +87,11 @@ jobs:
 
       - name: Stop and remove domain_detection container if running
         run: |
-         docker ps -q --filter "name=domain_detection" | grep -q . && docker stop domain_detection && docker rm -fv sensor
+         docker ps -q --filter "name=deewan44_domain-detection" | grep -q . && docker stop deewan44_domain-detection && docker rm -fv deewan44_domain-detection
 
       - name: Run Docker Image to serve users
         run: |
-         docker run -d -p 80:8080 --name=domain_detection -e 'ASTRA_DB_URL=${{ secrets.ASTRA_DB_URL }}' -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+         docker run -d -p 9090:9090 --name=domain_detection -e 'ASTRA_DB_URL=${{ secrets.ASTRA_DB_URL }}' -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Clean previous images and containers
         run: |
