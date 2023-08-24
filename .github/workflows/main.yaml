@@ -87,7 +87,8 @@ jobs:
 
       - name: Stop and remove domain_detection container if running
         run: |
-         docker ps -q --filter "name=deewan44_domain-detection" | grep -q . && docker stop deewan44_domain-detection && docker rm -fv deewan44_domain-detection
+         set -x
+          docker ps -q --filter "name=domain-detection" | grep -q . && docker stop domain-detection && docker rm -fv domain-detection
 
       - name: Run Docker Image to serve users
         run: |
