@@ -20,6 +20,7 @@ class ModelPusher:
 
     def initiate_model_pusher(self, ) -> ModelPusherArtifact:
         try:
+            logging.info("Initiating model pusher")
             trained_model_path = self.model_eval_artifact.trained_model_path
 
             # Creating model pusher dir to save model
@@ -35,6 +36,7 @@ class ModelPusher:
             # prepare artifact
             model_pusher_artifact = ModelPusherArtifact(saved_model_path=saved_model_path,
                                                         model_file_path=model_file_path)
+            logging.info("model pushed successfully")
             return model_pusher_artifact
         except  Exception as e:
             raise CustomException(e, sys)

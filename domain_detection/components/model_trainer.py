@@ -20,7 +20,7 @@ class ModelTrainer:
         except Exception as e:
             raise CustomException(e, sys)
 
-
+    @staticmethod
     def train_model(self, x_train, y_train):
         try:
             xgb_clf = XGBClassifier()

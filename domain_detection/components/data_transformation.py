@@ -65,11 +65,9 @@ class DataTransformation:
             input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_train_df = train_df[TARGET_COLUMN]
 
-
             # testing dataframe
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_test_df = test_df[TARGET_COLUMN]
-
 
             preprocessor_object = preprocessor.fit(input_feature_train_df)
             transformed_input_train_feature = preprocessor_object.transform(input_feature_train_df)

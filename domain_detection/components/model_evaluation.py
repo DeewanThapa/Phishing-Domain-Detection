@@ -1,6 +1,7 @@
 from domain_detection.exception import CustomException
 from domain_detection.logger import logging
-from domain_detection.entity.artifact_entity import DataValidationArtifact, ModelTrainerArtifact, ModelEvaluationArtifact
+from domain_detection.entity.artifact_entity import (DataValidationArtifact, ModelTrainerArtifact,
+                                                     ModelEvaluationArtifact)
 from domain_detection.entity.config_entity import ModelEvaluationConfig
 import os, sys
 from domain_detection.ml.metric.classification_metric import get_classification_score
